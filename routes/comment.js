@@ -2,7 +2,7 @@ var express = require('express');
 var db = require('../orms/db.js');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
+router.post('/ls', function(req, res, next) {
 	const {music_id} = req.body;
 	db.query('SELECT * FROM comments WHERE music_id=$1',[music_id], (err, ret) => {
 		if(err) {

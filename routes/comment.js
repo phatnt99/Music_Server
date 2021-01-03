@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
 	})
 });
 
-router.delete('/', function(req, res, next) {
+router.post('/rm', function(req, res, next) {
 	const {user_id, music_id} = req.body;
 	db.query('DELETE FROM comments WHERE user_id=$1 AND music_id=$2', [user_id, music_id], (err, ret) => {
 		if(err) {
